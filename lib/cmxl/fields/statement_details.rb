@@ -41,6 +41,14 @@ module Cmxl
         self.sub_fields['38'] || self.sub_fields['31']
       end
 
+      def title
+        sub_fields['20']
+      end
+
+      def account_number
+        sub_fields['31'][2..-1]
+      end
+
       def to_h
         {
           'bic' => bic,
