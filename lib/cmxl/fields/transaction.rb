@@ -2,7 +2,13 @@ module Cmxl
   module Fields
     class Transaction < Field
       self.tag = 61
-      self.parser = /^(?<date>\d{6})(?<entry_date>\d{4})?(?<funds_code>[a-zA-Z])(?<currency_letter>[a-zA-Z])?(?<amount>\d{1,12},\d{0,2})(?<swift_code>(?:N|F).{3})(?<reference>NONREF|.{0,16})(?:$|\/\/)(?<bank_reference>.*)/i
+      self.parser = /
+        ^
+        (?<date>\d{6})
+        (?<entry_date>\d{4})
+        (?<funds_code>[a-zA-Z])?
+        (?<amount>\d{1,12},\d{0,2})
+      /x
 
       attr_accessor :details
 
