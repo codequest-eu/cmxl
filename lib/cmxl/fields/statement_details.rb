@@ -42,7 +42,7 @@ module Cmxl
       end
 
       def title
-        sub_fields['20']
+        sub_fields.values_at(*%w(20 21 22 23 24 25)).compact.join
       end
 
       def account_number
